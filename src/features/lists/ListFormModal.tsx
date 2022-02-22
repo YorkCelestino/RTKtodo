@@ -14,10 +14,25 @@ const ListFormModal = ({
 	hideModal,
 	dataForEdit,
 }: Props): React.ReactElement => {
+	// constants
 	const [form] = Form.useForm();
 	const { Item } = Form;
 
+	const formItemLayout = {
+		labelCol: {
+			xs: { span: 24 },
+			sm: { span: 8 },
+		},
+		wrapperCol: {
+			xs: { span: 24 },
+			sm: { span: 24 },
+		},
+	};
+
+	// dispatch hooks
 	const dispatch = useAppDispatch();
+
+	// useSelector hooks
 	const tasks = useAppSelector((state) => state.mainList.tasks);
 
 	// When de modal open if dataForEdit has data set the form values.
@@ -47,19 +62,6 @@ const ListFormModal = ({
 			dispatch(setListsValue(newData));
 			onCloseModal();
 		}
-	};
-
-	const formItemLayout = {
-		labelCol: {
-			xs: { span: 24 },
-			sm: { span: 8 },
-			md: { span: 4 },
-			lg: { span: 8 },
-		},
-		wrapperCol: {
-			xs: { span: 24 },
-			sm: { span: 24 },
-		},
 	};
 
 	// close modal function

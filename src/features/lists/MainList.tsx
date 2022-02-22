@@ -29,11 +29,11 @@ const MainList = (): React.ReactElement => {
 
 	// useState hook
 	const [isModalVisible, setIsModalVisible] = useState(false);
+	const [dataForEdit, setDataForEdit] = useState<MainListType>();
 	const [valueSearch, setValueSearch] = useState<string>("");
 
 	// useSelector hook
 	const tasks = useAppSelector((state) => state.mainList.tasks);
-	const [dataForEdit, setDataForEdit] = useState<MainListType>();
 
 	// show modal function
 	const showModal = (dataForEdit?: MainListType) => {
